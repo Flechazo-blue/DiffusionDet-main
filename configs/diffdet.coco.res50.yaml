@@ -1,0 +1,23 @@
+_BASE_: "Base-DiffusionDet.yaml"
+MODEL:
+  WEIGHTS: "detectron2://ImageNetPretrained/torchvision/R-50.pkl"
+  RESNETS:
+    DEPTH: 50
+    STRIDE_IN_1X1: False
+#    RES2_OUT_CHANNELS: 64
+  DiffusionDet:
+    NUM_PROPOSALS: 30
+    NUM_CLASSES: 7
+DATASETS:
+  TRAIN: ("SAR_train",)
+  TEST:  ("SAR_validation",)
+SOLVER:
+#  STEPS: (15000, 25000)
+#  MAX_ITER: 45000
+  STEPS: (50000, 75000)
+  MAX_ITER: 180000
+  IMS_PER_BATCH: 4
+INPUT:
+  CROP:
+    ENABLED: True
+  FORMAT: "RGB"

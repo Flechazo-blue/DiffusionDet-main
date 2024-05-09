@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotation>
+<size>
+<width>1000</width>
+<height>1000</height>
+</size>
+<object>
+<name>A330</name>
+<pose>Unspecified</pose>
+<truncated>0</truncated>
+<difficult>0</difficult>
+<bndbox>
+<xmin>319</xmin>
+<ymin>399</ymin>
+<xmax>368</xmax>
+<ymax>444</ymax>
+</bndbox>
+</object>
+</annotation>
