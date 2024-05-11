@@ -216,7 +216,7 @@ class DiffusionDet(nn.Module):
 
             if self.box_renewal:  # filter
                 # sw: 就是这里对于预测框进行了筛选，将分数低的盒子用随机数覆盖
-                # sw: 对于每个盒子，取类别分数的最大值 作为 盒子分数，然后判断是否大于阈值
+                # sw: 分数的计算：对于每个盒子，取类别分数的最大值 作为 盒子分数
                 score_per_image, box_per_image = outputs_class[-1][0], outputs_coord[-1][0]
                 threshold = 0.5
                 score_per_image = torch.sigmoid(score_per_image)
@@ -379,6 +379,7 @@ class DiffusionDet(nn.Module):
 
     def prepare_diffusion_concat(self, gt_boxes):
         """
+        sw: 取随机值t，生成噪声，填充bounding box，添加噪声（前向）
         :param gt_boxes: (cx, cy, w, h), normalized
         :param num_proposals:
         """
